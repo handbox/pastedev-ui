@@ -6,6 +6,10 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+const VueConfig = require('vue-config')
+let config = require('./../config/config')
+
+Vue.use(VueConfig, config)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
