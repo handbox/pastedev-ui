@@ -31,14 +31,15 @@ export default {
   },
   methods: {
     postPaste: function () {
-      console.log(this.$config.pastedev.endpoint)
+      const client = new PastedevClient({endpoint: this.$config.pastedev.endpoint})
+
       let pasteValue = document.getElementById('paste-input').value
       let pasteTitle = document.getElementById('paste-title').value
-      const client = new PastedevClient({endpoint: this.$config.pastedev.endpoint})
+
       let paste = {}
       paste.title = pasteTitle
       paste.content = pasteValue
-      client.postPaste(paste, {})
+      client.postPaste(paste)
     }
   }
 }
@@ -53,6 +54,5 @@ export default {
 
   textarea {
     resize: none;
-    /*z-index: 10;*/
   }
 </style>

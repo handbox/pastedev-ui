@@ -15,7 +15,7 @@ export default new Router({
       component: NewPaste
     },
     {
-      path: '/$',
+      path: '/:id',
       name: 'Show paste',
       component: ShowPaste
     },
