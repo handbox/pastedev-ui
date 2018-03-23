@@ -1,27 +1,5 @@
-// let request = require('request')
-/*
-export class PastedevClient {
-  constructor ({endpoint}) {
-    Object.assign(this, {endpoint})
-  }
-
-  request (url, options = {}) {
-    const headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }
-
-    let result = {}
-    request(this.endpoint + url, {...options, headers}, (err, resp, body) => {
-      if (err) { return console.log(err) }
-      // console.log(body.content)
-      Object.assign(result, {id: body.id, content: body.content, title: body.title})
-      // result.content = body.content
-    })
-
-    return result
-  } */
 import request from './request'
+let requestLib = require('request')
 
 export class PastedevClient {
   constructor ({endpoint}) {
@@ -33,7 +11,11 @@ export class PastedevClient {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     }
-    return request(this.endpoint + url, {...options, headers})
+    if (options.method === 'POST') {
+      return requestLib(this.endpoint + url, {...options, headers})
+    } else {
+      return request(this.endpoint + url, {...options, headers})
+    }
   }
 
   listApis (options) {

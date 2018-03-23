@@ -39,6 +39,7 @@ export default {
       let paste = {}
       paste.title = pasteTitle
       paste.content = pasteValue
+
       client.postPaste(paste)
     }
   }
