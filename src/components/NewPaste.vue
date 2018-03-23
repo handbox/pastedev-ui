@@ -32,14 +32,11 @@ export default {
   methods: {
     postPaste: function () {
       const client = new PastedevClient({endpoint: this.$config.pastedev.endpoint})
-
       let pasteValue = document.getElementById('paste-input').value
       let pasteTitle = document.getElementById('paste-title').value
-
       let paste = {}
       paste.title = pasteTitle
       paste.content = pasteValue
-
       client.postPaste(paste)
     }
   }
