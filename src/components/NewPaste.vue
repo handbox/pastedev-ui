@@ -8,7 +8,7 @@
           <label class="mdl-textfield__label" for="paste-title">Paste Name</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-          <textarea class="mdl-textfield__input" id="paste-input" rows="30" maxlength="1000"></textarea>
+          <textarea class="mdl-textfield__input" id="paste-input"></textarea>
           <label class="mdl-textfield__label" for="paste-input">{{ newPasteText }}</label>
         </div>
         <div>
@@ -45,6 +45,15 @@ export default {
 </script>
 
 <style scoped>
+  .mdl-textfield {
+    margin: 0 10vh;
+    width: calc(100% - 10rem);
+  }
+
+  .mdl-cell {
+    width: calc(100% - 16px);
+  }
+
   button.mdl-button {
     position: inherit;
     margin: 0 0 3em 0;
@@ -52,5 +61,6 @@ export default {
 
   textarea {
     resize: none;
+    height: 55vh;
   }
 </style>
